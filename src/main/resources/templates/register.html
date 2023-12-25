@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta  http-equiv="Content-Type" content="charset=UTF-8" >
+    <title>Registration</title>
+
+    <style type="text/css">
+        button,tr{
+            font-size: 150%;
+        }
+    </style>
+</head>
+<body>
+<center>
+<h1>Registration</h1>
+</center>
+<!-- Display error message if registration fails -->
+<div th:if="${param.error != null}" style="color: red;">Email is already registered</div>
+<center>
+    <form th:action="@{/mail/register}" th:object="${user}" method="post">
+        <table>
+            <tr>
+                <td><label for="username" >Phone:</label></td>
+                <td><input type="text" id="username" name="username" th:field="*{username}" placeholder="use change your password" required><br></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email:</label></td>
+                <td><input type="text" id="email" name="email" th:field="*{email}" required><br></td>
+                <td><label >@laobao.line.pm</label></td>
+            </tr>
+            <tr>
+                <td><label for="password">Password:</label></td>
+                <td><input type="password" id="password" name="password" th:field="*{password}" required><br></td>
+            </tr>
+            <tr>
+                <td><button type="submit">Register</button></td>
+            </tr>
+
+    <!--        <label for="username">Username:</label>-->
+    <!--        <input type="text" id="username" name="username" th:field="*{username}" required><br>-->
+
+    <!--        <label for="email">Email:</label>-->
+    <!--        <input type="email" id="email" name="email" th:field="*{email}" required><br>-->
+
+    <!--        <label for="password">Password:</label>-->
+    <!--        <input type="password" id="password" name="password" th:field="*{password}" required><br>-->
+
+    <!--        <button type="submit">Register</button>-->
+        </table>
+    </form>
+</center>
+</body>
+</html>
