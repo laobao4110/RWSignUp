@@ -1,6 +1,5 @@
 package com.example.rwsignup.contrller;
 import com.example.rwsignup.dto.User;
-import com.example.rwsignup.service.UserRepository;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.NativeQuery;
 import org.hibernate.transform.AliasToEntityMapResultTransformer;
@@ -24,8 +23,7 @@ import java.util.Map;
 
 @Controller
 public class UserController {
-    @Autowired
-    private UserRepository userRepository;
+
     @Autowired
     private EntityManager entityManager;
 
@@ -50,7 +48,7 @@ public class UserController {
                 .setResultTransformer(AliasToEntityMapResultTransformer.INSTANCE)
                 .getResultList();
         if (result != null && result.size()!= 0) {
-            return "redirect:/mail/register?error";
+            return "redirect:/register?error";
         }
 
 
@@ -62,7 +60,7 @@ public class UserController {
 
         String sqlInsert = "INSERT INTO `tbl_Users` ( `DomainID`, `Email`, `Password`, `Department`, `FulName`, `Active`) VALUES ( '1','"+ email +" ', '"+hashedPassword+"', 'IT', '"+user.getUsername()+"', '1');";
         entityManager.createNativeQuery(sqlInsert).executeUpdate();
-        return "redirect:/mail/success";
+        return "redirect:/success";
     }
     @GetMapping("/success")
     public String success() {

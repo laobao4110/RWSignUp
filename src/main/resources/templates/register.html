@@ -17,7 +17,7 @@
 <!-- Display error message if registration fails -->
 <div th:if="${param.error != null}" style="color: red;">Email is already registered</div>
 <center>
-    <form th:action="@{/mail/register}" th:object="${user}" method="post">
+    <form th:action="@{/register}" th:object="${user}" method="post">
         <table>
             <tr>
                 <td><label for="username" >Phone:</label></td>

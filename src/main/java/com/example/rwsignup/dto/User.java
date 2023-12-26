@@ -2,18 +2,12 @@ package com.example.rwsignup.dto;
 
 import javax.persistence.*;
 
-@Table(name = "\"tbl_Users\"")
-@Entity
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "\"UserID\"")
     private Integer id;
-    @Column(name = "\"FulName\"")
     private String username;
-    @Column(name = "\"Email\"")
     private String email;
-    @Column(name = "\"Password\"")
     private String password;
 
 
